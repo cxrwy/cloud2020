@@ -1,0 +1,13 @@
+#Intellij idea
+.idea/
+/idea/
+*.ipr
+*.iml
+*.iws
+
+#maven ignore
+target/
+build/
+
+#java
+*.class
