@@ -4,6 +4,7 @@
 *.ipr
 *.iml
 *.iws
+/target/
 
 #maven ignore
 target/
