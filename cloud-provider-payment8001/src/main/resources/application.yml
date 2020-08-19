@@ -4,9 +4,21 @@ server:
 spring:
   application:
     name: cloud-payment-service
+  zipkin:
+    base-url: http://localhost:9411
+    sleuth:
+      sampler:
+      #采样率值介于 0 到 1 之间，1 则表示全部采集
+      probability: 1
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+#    driver-class-name: com.mysql.cj.jdbc.Driver             # mysql驱动包
+#    url: jdbc:mysql://localhost:3306/db2019?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
+#    username: root
+#    password: 123456
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
-    driver-class-name: com.mysql.cj.jdbc.Driver             # mysql驱动包
+    driver-class-name: org.gjt.mm.mysql.Driver             # mysql驱动包
     url: jdbc:mysql://localhost:3306/db2019?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: 123456
@@ -18,8 +30,8 @@ eureka:
     fetch-registry: true
     service-url:
       #单机版：# 入驻地址
-      #defaultZone: http://localhost:7001/eureka/
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/ # 入驻地址,eureka7001.com是在hosts文件里面配置的
+      defaultZone: http://localhost:7001/eureka/
+      #defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/ # 入驻地址,eureka7001.com是在hosts文件里面配置的
   instance:   #主机名称:服务名称修改
     instance-id: payment8001
     prefer-ip-address: true #访问路径可以显示ip地址
